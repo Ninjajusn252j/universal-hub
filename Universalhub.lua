@@ -1,30 +1,55 @@
-local Rayfield = loadstring(game:HttpGet('https://raw.githubusercontent.com/UI-Interface/CustomFIeld/main/RayField.lua'))()
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/weakhoes/Roblox-UI-Libs/refs/heads/main/Orion%20Lib/Orion%20Lib%20Source.lua')))()
 
-local Window = Rayfield:CreateWindow({
-    Name = "Universal Hub",
-    LoadingTitle = "Cargando Universal Hub...",
-    LoadingSaving = {
-        Enabled = true,
-        FolderName = "UniversalHub", -- Cambia el nombre de la carpeta si es necesario
-        FileName = "Config"
-    },
-    KeySystem = false,
+local Window = OrionLib:MakeWindow({
+    Name = "Ninja-Hub Key System",
+    HidePremium = false,
+    SaveConfig = true,
+    ConfigFolder = "OrionTest",
+    IntroEnabled = true,
+    IntroText = "Ninja-Hub loading...",
+    IntroIcon = "rbxassetid://88159629854210",
+    Icon = "rbxassetid://88159629854210"
 })
 
-local Tab = Window:CreateTab("Tab Example", 4483362458) -- Título, Imagen
+local KeyTab = Window:MakeTab({
+    Name = "Key",
+    Icon = "rbxassetid://4483345998",
+    PremiumOnly = false
+})
 
--- Corrigiendo los labels para ajustarse a la documentación
-local Label = Tab:CreateLabel("Necesitas unirte a nuestro grupo de Roblox para usar este script.")
-local Label1 = Tab:CreateLabel("Pulsa el botón para copiar el enlace de nuestro grupo y pégalo en tu navegador.")
+-- Etiquetas
+KeyTab:AddLabel("Únete a nuestro grupo de Roblox para obtener la key permanente (tienes que pulsar el botón).")
 
 -- Enlace del grupo
-local GroupLink = "https://roblox.com.py/groups/800270751/" -- Reemplaza "GRUPO_ID" con el ID real de tu grupo
+local GroupLink = "https://roblox.com.py/groups/800270751/" -- Asegúrate de que este enlace sea válido
 
--- Botón para copiar el enlace
-local Button = Tab:CreateButton({
-   Name = "Copiar enlace del grupo",
-   Callback = function()
-        setclipboard(GroupLink) -- Copia el enlace al portapapeles
+-- Caja de texto para ingresar la key
+KeyTab:AddTextbox({
+    Name = "Enter Key",
+    Default = "",
+    TextDisappear = true,
+    Callback = function(Value)
+        setclipboard(GroupLink)
         print("¡Enlace del grupo copiado al portapapeles!")
-   end,
+    end
 })
+
+-- Botón para copiar el enlace del grupo
+KeyTab:AddButton({
+    Name = "Get Key",
+    Callback = function()
+        setclipboard(GroupLink)
+        print("¡Enlace del grupo copiado al portapapeles!")
+    end    
+})
+
+-- Botón para verificar la key (puedes añadir lógica adicional si es necesario)
+KeyTab:AddButton({
+    Name = "Check Key",
+    Callback = function()
+        print("¡Verificando la key!")
+        -- Aquí puedes agregar lógica para validar la key
+    end    
+})
+
+OrionLib:Init()
