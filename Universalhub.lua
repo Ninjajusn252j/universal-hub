@@ -21,7 +21,7 @@ local KeyTab = Window:MakeTab({
 KeyTab:AddLabel("Únete a nuestro grupo de Roblox para obtener la key permanente (tienes que pulsar el botón).")
 
 -- Enlace del grupo
-local GroupLink = "https://roblox.com.py/groups/800270751/" -- Asegúrate de que este enlace sea válido
+local GroupLink = "https://roblox.com.py/groups/7193582471/" -- Asegúrate de que este enlace sea válido
 
 -- Caja de texto para ingresar la key
 KeyTab:AddTextbox({
