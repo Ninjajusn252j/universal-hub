@@ -2,7 +2,7 @@
 local Key = "Imposiblehahaha"
 
 -- Cargamos la librería de Rayfield UI.
-local Rayfield = loadstring(game:HttpGet("https://raw.githubusercontent.com/Rayfield/Rayfield/main/source"))()
+local Rayfield = loadstring(game:HttpGet("https://sirius.menu/rayfield"))()
 
 -- Creamos la ventana principal.
 local Window = Rayfield:CreateWindow({
