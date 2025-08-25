@@ -1,6 +1,6 @@
 local Key = "Imposiblehahaha"
 
-local Rayfield = loadstring(game:HttpGet("https://sirius.menu/rayfield"))()
+local Rayfield = loadstring(game:HttpGet("https://raw.githubusercontent.com/Rayfield/Rayfield/main/source"))()
 
 local Window = Rayfield:CreateWindow({
     Name = "Acceso Requerido",
@@ -17,7 +17,7 @@ local Window = Rayfield:CreateWindow({
     KeySettings = {
         Title = "Sistema de Claves",
         Subtitle = "Necesitas una clave para usar el script.",
-        Note = "Únete a nuestro grupo de Roblox que tienes copiado en el portapapeles para obtenerla.",
+        Note = "Únete a nuestro grupo de Roblox para obtenerla.",
         FileName = "RayfieldHubKeyFile",
         SaveKey = true,
         GrabKeyFromSite = false,
