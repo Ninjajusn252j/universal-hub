@@ -1,47 +1,72 @@
+-- Key System Script by DarkEclipse252j--
+-- Contenido de https://raw.githubusercontent.com/Ninjajusn252j/scripts-discord/main/scripts/gonzalo01034.lua
 
-local Key = "Imposiblehahaha"
+-- No necesitas definir 'GroupLink' aquí, ya que se toma de _G.Config.GroupLink
 
--- Cargamos la librería de Rayfield UI.
-local Rayfield = loadstring(game:HttpGet("https://sirius.menu/rayfield"))()
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/weakhoes/Roblox-UI-Libs/refs/heads/main/Orion%20Lib/Orion%20Lib%20Source.lua')))()
 
--- Creamos la ventana principal.
-local Window = Rayfield:CreateWindow({
-    Name = "Acceso Requerido",
-    LoadingTitle = "Verificando...",
-    LoadingSubtitle = "Por favor, espera.",
-    ConfigurationSaving = {
-        Enabled = false,
-    },
-    Discord = {
-        Enabled = false
-    },
-    -- Habilitamos y configuramos el sistema de llaves de Rayfield.
-    KeySystem = true,
-    KeySettings = {
-        Title = "Sistema de Claves",
-        Subtitle = "Necesitas una clave para usar el script.",
-        Note = "Únete a nuestro grupo que tienes copuadi en el portapapeles de Roblox para obtenerla.",
-        FileName = "RayfieldHubKeyFile", -- Nombre del archivo donde se guardará la clave.
-        SaveKey = true, -- Guarda la clave para que no tenga que ser ingresada de nuevo.
-        GrabKeyFromSite = false,
-        Key = {Key} -- La clave o claves que se aceptarán.
-    }
+local Window = OrionLib:MakeWindow({
+    Name = " Key System",
+    HidePremium = false,
+    SaveConfig = true,
+    ConfigFolder = "OrionTest",
+    IntroEnabled = true,
+    IntroText = "loading...",
+    IntroIcon = "rbxassetid://88159629854210",
+    Icon = "rbxassetid://88159629854210"
 })
 
--- La GUI para obtener la clave. Rayfield la genera automáticamente.
--- A continuación, el código para la lógica del botón "Obtener Clave".
-local KeyTab = Window:CreateTab("Clave", 4483345998)
-local KeySection = KeyTab:CreateSection("Obtener la clave")
+local KeyTab = Window:MakeTab({
+    Name = "Key",
+    Icon = "rbxassetid://4483345998",
+    PremiumOnly = false
+})
 
--- Botón para copiar el enlace al portapapeles.
-KeySection:CreateButton({
-    Name = "Obtener Enlace del Grupo",
-    Callback = function()
-        setclipboard(_G.Config.GroupLink)
-        Rayfield:Notify({
-            Title = "Enlace Copiado",
-            Content = "El enlace del grupo ha sido copiado a tu portapapeles ve al navegador y pegalo.",
-            Duration = 5
+-- Etiquetas
+KeyTab:AddLabel("Únete a nuestro grupo de Roblox para obtener la key permanente")
+KeyTab:AddLabel("Dale a get key para copia el enlace del grupo")
+
+KeyTab:AddTextbox({
+    Name = "Enter Key",
+    Default = "",
+    TextDisappear = true,
+    Callback = function(Value)
+        setclipboard(GroupLink)
+        setclipboard(_G.Config.GroupLink) -- ¡Accede a GroupLink desde _G.Config!
+        OrionLib:MakeNotification({
+            Name = "Key System",
+            Content = "dale a get key",
+            Content = "Dale a get key",
+            Image = "rbxassetid://4483345998",
+            Time = 5
         })
-    end,
+    end
 })
+
+-- Botón para copiar el enlace del grupo
+KeyTab:AddButton({
+    Name = "Get Key",
+    Callback = function()
+        setclipboard(GroupLink)
+        setclipboard(_G.Config.GroupLink) -- ¡Accede a GroupLink desde _G.Config aquí también!
+        OrionLib:MakeNotification({
+            Name = "Key System",
+            Content = "Enlace de la key copiado, ¡ve y pégalo en el navegador!",
+@@ -51,17 +54,16 @@
+    end
+})
+
+
+KeyTab:AddButton({
+    Name = "Check Key",
+    Callback = function()
+        OrionLib:MakeNotification({
+            Name = "Key System",
+            Content = "ERROR REVISE SU KEY O SU EXECUTOR!",
+            Image = "rbxassetid://4483345998",
+            Time = 5
+        })
+    end
+})
+
+OrionLib:Init()
